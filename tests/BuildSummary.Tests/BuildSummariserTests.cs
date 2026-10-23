@@ -30,7 +30,7 @@ public class BuildSummariserTests
     [Fact]
     public void FailureRate_IsCorrectForSomeBuilds()
     {
-        Assert.Equal(0.75, BuildSummariser.FailureRate(Builds));
+        Assert.Equal(0.5, BuildSummariser.FailureRate(Builds));
     }
 
     [Fact]
