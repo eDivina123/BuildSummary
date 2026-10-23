@@ -10,6 +10,10 @@ on:
 jobs: 
   build-and-test:
     runs-on: ubuntu-latest
+    permissions: 
+        contents: read
+        id-token: write # lets the job prove its identity to the signing service
+        attestations: write # lets it store the signed attestation
     steps: 
       - uses: actions/checkout@v7 #installs on liniux machine 
       - uses: actions/setup-dotnet@v6 #install .NET10
@@ -18,5 +22,19 @@ jobs:
       - run: dotnet restore #downloads pakcages such as Xunit 
       - run: dotnet build --no-restore -c Release #compile in realiaese mode(optimise) --no restores skips respeating step abo e
       - run: dotnet test --no-build -c Release #runs the tests on build above
-      - run: docker build -t build-summary .
+      - run: docker build -t build-summary . #check docker iage still builds
+
+      #builds the shippable program into publish folder
+      - run: dotnet publish src/BuildSummary.Cli/BuildSummary.Cli.csproj -c Release -o publish
+      #sign the dll (compiled  code) and exe (executable) in the publish folder
+      - uses: actions/attest-build-provenance@v4
+        if: github.event_name == 'push'
+        with:
+          subject-path: publish/BuildSummary.Cli.dll
+      #saves public/ so it can be downloaded from the run 
+      - uses: actions/upload-artifact@v7
+        if: github.event_name == 'push'
+        with:
+          name: build-summary
+          path: publish/
 
