@@ -19,6 +19,7 @@ Or with Docker:
 - BuildSummary.Core: the summary logic, kept apart from the console so it's easy to test
 - BuildSummary.Cli: reads the JSON file and prints the summary
 - BuildSummary.Tests: xUnit tests, run by GitHub Actions on every push and pull request
+- - Commits are signed, builds on main carry a signed attestation, and Dependabot keeps packages and actions up to date
 
 ## What I'd add next
 
