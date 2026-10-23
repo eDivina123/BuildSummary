@@ -1,0 +1,10 @@
+[
+  { "repo": "access-api",     "branch": "main",           "status": "Succeeded", "minutes": 7.5 },
+  { "repo": "access-api",     "branch": "main",           "status": "Failed",    "minutes": 9.0 },
+  { "repo": "access-api",     "branch": "feature/badges", "status": "Failed",    "minutes": 11.2 },
+  { "repo": "alarm-service",  "branch": "main",           "status": "Succeeded", "minutes": 4.1 },
+  { "repo": "alarm-service",  "branch": "main",           "status": "Succeeded", "minutes": 3.8 },
+  { "repo": "web-portal",     "branch": "main",           "status": "Failed",    "minutes": 14.6 },
+  { "repo": "web-portal",     "branch": "fix/login",      "status": "Succeeded", "minutes": 12.9 },
+  { "repo": "shared-logging", "branch": "main",           "status": "Succeeded", "minutes": 2.3 }
+]

@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/BuildSummary.Cli/BuildSummary.Cli.csproj" />
+    <Project Path="src/BuildSummary.Core/BuildSummary.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/BuildSummary.Tests/BuildSummary.Tests.csproj" />
+  </Folder>
+</Solution>
