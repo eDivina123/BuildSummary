@@ -18,4 +18,5 @@ jobs:
       - run: dotnet restore #downloads pakcages such as Xunit 
       - run: dotnet build --no-restore -c Release #compile in realiaese mode(optimise) --no restores skips respeating step abo e
       - run: dotnet test --no-build -c Release #runs the tests on build above
+      - run: docker build -t build-summary .
 
